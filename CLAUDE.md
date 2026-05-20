@@ -1,5 +1,5 @@
 # CLAUDE.md
-
+ 
 ## Project overview
 
 Open BSP API — a multi-tenant WhatsApp Business Platform integration built with
