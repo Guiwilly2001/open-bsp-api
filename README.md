@@ -1,4 +1,4 @@
-<h1 align="center">OpenBSP API</h1>
+<h1 align="center">wakit API</h1>
 <p align="center">
   <strong>Open-source WhatsApp Business Platform</strong>
 </p>
@@ -7,33 +7,41 @@
 </p>
 
 <p align="center">
-  <a href="https://web.openbsp.dev"><img src="https://img.shields.io/badge/%F0%9F%9A%80_try_it-web.openbsp.dev-C26A3D" alt="Try it"></a>&nbsp;
+  <a href="https://app.wakit.ai"><img src="https://img.shields.io/badge/%F0%9F%9A%80_try_it-app.wakit.ai-C26A3D" alt="Try it"></a>&nbsp;
   <a href="https://unlicense.org/"><img src="https://img.shields.io/badge/license-Unlicense-blue.svg" alt="License: Unlicense"></a>&nbsp;
-  <a href="https://github.com/matiasbattocchia/open-bsp-api/stargazers"><img src="https://img.shields.io/github/stars/matiasbattocchia/open-bsp-api" alt="GitHub Stars"></a>&nbsp;
-  <a href="https://github.com/matiasbattocchia/open-bsp-api/commits/main"><img src="https://img.shields.io/github/last-commit/matiasbattocchia/open-bsp-api" alt="Last Commit"></a>&nbsp;
+  <a href="https://github.com/matiasbattocchia/wakit-api/stargazers"><img src="https://img.shields.io/github/stars/matiasbattocchia/wakit-api" alt="GitHub Stars"></a>&nbsp;
+  <a href="https://github.com/matiasbattocchia/wakit-api/commits/main"><img src="https://img.shields.io/github/last-commit/matiasbattocchia/wakit-api" alt="Last Commit"></a>&nbsp;
   <a href="https://chat.whatsapp.com/Ch6AwZizSDt5quzHodcYh5"><img src="https://img.shields.io/badge/Community-25D366?logo=whatsapp&logoColor=white" alt="Community"></a>
 </p>
 
-OpenBSP is designed for both individual businesses and service providers. You
-can use it to manage your own WhatsApp messaging, or leverage its features to
-become a
+wakit is designed for both individual businesses and service providers. You can
+use it to manage your own WhatsApp messaging, or leverage its features to become
+a
 [Meta Business Partner](https://developers.facebook.com/docs/whatsapp/solution-providers)
 and offer WhatsApp messaging services to other organizations.
+
+🚀 **Powering production-grade AI agents at
+[Mirlo.com](https://mirlo.com/agentes-ia/whatsapp)**
+
+> [!NOTE]
+> This project is now backed by <a href="https://mirlo.com">Mirlo.com</a>, where
+> I work, and is undergoing a rebranding. The project name is changing from
+> **OpenBSP** to **wakit**.
 
 ## User Interface
 
 For a complete web-based interface to manage conversations check out the
 companion project:
 
-**🖥️ [OpenBSP UI](https://github.com/matiasbattocchia/open-bsp-ui)** — A modern,
+**🖥️ [wakit UI](https://github.com/matiasbattocchia/wakit-ui)** — A modern,
 responsive web interface built with React and Tailwind.
 
 https://github.com/user-attachments/assets/1ef30dde-9de1-4f5a-856a-db34ca2e3063
 
 ## Description
 
-OpenBSP API is a multi-tenant platform that connects to the official WhatsApp
-API to receive and send messages, storing them in a Supabase-backed database.
+wakit API is a multi-tenant platform that connects to the official WhatsApp API
+to receive and send messages, storing them in a Supabase-backed database.
 
 ### Core features
 
@@ -75,7 +83,7 @@ Interpret and extract information from media and document files, including:
 
 ### Claude Code plugin
 
-The OpenBSP plugin gives Claude Code full API access and optionally bridges
+The wakit plugin gives Claude Code full API access and optionally bridges
 WhatsApp messages in real-time. Claude can query contacts, conversations,
 templates, and more via the `query` tool, and reply to WhatsApp messages via the
 `reply` tool.
@@ -83,15 +91,15 @@ templates, and more via the `query` tool, and reply to WhatsApp messages via the
 Install the plugin:
 
 ```
-/plugin marketplace add matiasbattocchia/open-bsp-api
-/plugin install openbsp@matiasbattocchia-open-bsp-api
+/plugin marketplace add matiasbattocchia/wakit-api
+/plugin install wakit@matiasbattocchia-wakit-api
 ```
 
 On first run, a browser opens for Google sign-in (same account as the web UI).
 Then configure allowed contacts for the WhatsApp channel:
 
 ```
-/openbsp:config contacts add 5491155551234
+/wakit:config contacts add 5491155551234
 ```
 
 No contacts are forwarded until explicitly added (secure by default). API access
@@ -104,15 +112,15 @@ The `mcp` Edge Function exposes an [MCP](https://modelcontextprotocol.io) server
 over SSE, giving agentic access to the WhatsApp API from clients like Claude
 Desktop or other agent platforms.
 
-For the hosted version at [web.openbsp.dev](https://web.openbsp.dev), the MCP
-server URL is:
+For the hosted version at [app.wakit.ai](https://app.wakit.ai), the MCP server
+URL is:
 
 ```
-https://nheelwshzbgenpavwhcy.supabase.co/functions/v1/mcp
+https://api.wakit.ai/functions/v1/mcp
 ```
 
 Authentication uses the `Authorization: Bearer <API_KEY>` header. Get it from
-OpenBSP > Settings > API Keys.
+wakit > Settings > API Keys.
 
 Optionally, `Allowed-Contacts` and `Allowed-Accounts` headers restrict which
 phone numbers the key can access.
@@ -122,8 +130,8 @@ Claude Desktop configuration (`claude_desktop_config.json`):
 ```json
 {
   "mcpServers": {
-    "openbsp": {
-      "url": "https://nheelwshzbgenpavwhcy.supabase.co/functions/v1/mcp",
+    "wakit": {
+      "url": "https://api.wakit.ai/functions/v1/mcp",
       "headers": {
         "Authorization": "Bearer <API_KEY>"
       }
@@ -146,9 +154,9 @@ Available tools:
 
 ## Demo
 
-A managed instance is available at
-**[web.openbsp.dev](https://web.openbsp.dev)** — same codebase as this repo,
-running on Supabase. Sign up with a Google or GitHub account.
+A managed instance is available at **[app.wakit.ai](https://app.wakit.ai)** —
+same codebase as this repo, running on Supabase. Sign up with a Google or GitHub
+account.
 
 ### Quotas
 
@@ -175,13 +183,129 @@ and all data is scoped by organization with no cross-org dependencies.
 > **Deploy your own instance in under 15 minutes** — no local environment
 > required.
 
-1. [Fork](https://github.com/matiasbattocchia/open-bsp-api/fork) this repo (1
-   min)
+1. [Fork](https://github.com/matiasbattocchia/wakit-api/fork) this repo (1 min)
 2. Create a [Supabase](https://supabase.com) project (5 min)
-3. Connect the project to your fork via the Supabase GitHub Integration (5 min)
+3. Complete the **[Before your first push](#before-your-first-push-one-time-setup)**
+   checklist below (5 min)
+4. Connect the project to your fork via the Supabase GitHub Integration (5 min)
+5. Configure the **[WhatsApp integration](#whatsapp-integration)** to receive
+   real messages
 
 You are live! 🚀 Pushes to your default branch will automatically deploy
 database migrations and Edge Functions.
+
+### Before your first push (one-time setup)
+
+> [!IMPORTANT]
+> This section consolidates **every manual step** that a fresh Supabase Cloud
+> project (2025+) requires before this codebase works end-to-end. Skipping any
+> of these results in **silent failures** — Edge Functions log obscure errors
+> like `schema "net" does not exist` or `relation "supabase_functions.hooks"
+> does not exist`, and inbound WhatsApp messages reach the webhook but are
+> never persisted to `public.messages`.
+
+The bootstrap migration `supabase/migrations/20260520170000_bootstrap_self_host.sql`
+is idempotent and handles the database-side prerequisites automatically on the
+first `supabase db push`:
+
+- `pg_net`, `supabase_vault`, `pgcrypto` extensions
+- The legacy `supabase_functions` schema and its `hooks` table (used by the
+  built-in `public.edge_function()` and `public.dispatcher_edge_function()`
+  triggers for audit + history)
+
+You still have to provide a few **secrets** that cannot be versioned in Git.
+
+#### 1. Vault secrets (required for triggers and cron jobs)
+
+Two secrets must exist in `vault.decrypted_secrets`. They tell the database
+how to call your Edge Functions from triggers and `pg_cron` jobs.
+
+| Secret name             | Value                                                                   |
+| ----------------------- | ----------------------------------------------------------------------- |
+| `edge_functions_url`    | `https://<SUPABASE_PROJECT_ID>.supabase.co/functions/v1`                |
+| `edge_functions_token`  | Your project's **service role key** (or a secret key with equivalent privileges) |
+
+Two ways to set them:
+
+- **Automated**: run the `Release` GitHub Actions workflow once (see
+  [Alternative: deploy via GitHub Actions](#alternative-deploy-via-github-actions-optional)
+  below). The `deploy-vault-secrets.sh` step creates or updates both secrets
+  from the corresponding GitHub Actions secrets/variables.
+- **Manual**: in the Supabase Dashboard, go to **Project Settings** > **Vault**
+  > **Secrets** > **New secret** and add both rows with the exact names above.
+
+Verify with:
+
+```sql
+select name from vault.decrypted_secrets
+where name in ('edge_functions_url', 'edge_functions_token');
+```
+
+#### 2. Edge Functions secrets (required for WhatsApp)
+
+Set these in **Supabase Dashboard** > **Edge Functions** > **Secrets** (or via
+the `Release` workflow — they are deployed there by `supabase secrets set`):
+
+| Secret                            | Where to get it                                                             |
+| --------------------------------- | --------------------------------------------------------------------------- |
+| `META_APP_ID`                     | Meta App Dashboard > App settings > Basic > **App ID**                      |
+| `META_APP_SECRET`                 | Meta App Dashboard > App settings > Basic > **App secret**                  |
+| `META_SYSTEM_USER_ID`             | Meta Business Suite > Settings > Users > System users > **ID**              |
+| `META_SYSTEM_USER_ACCESS_TOKEN`   | Same screen > **Access token** (with `whatsapp_business_*` permissions)     |
+| `WHATSAPP_VERIFY_TOKEN`           | A string of your choice; reused when configuring the Meta webhook callback  |
+
+Full step-by-step for obtaining these is in
+[WhatsApp integration](#whatsapp-integration) below.
+
+> Without these, `whatsapp-management` returns
+> `META_APP_ID or META_APP_SECRET environment variable not set`, and the Meta
+> webhook handshake (`hub.verify_token`) fails silently with HTTP 401.
+
+#### 3. Supabase Auth providers
+
+In **Supabase Dashboard** > **Authentication** > **Providers**:
+
+- **Email**: enable it (and pick `Confirm email` according to your policy)
+- **Google** / **GitHub** (optional): enable and paste the OAuth client ID and
+  secret from the respective developer console. Add your UI origin to
+  **Authentication** > **URL Configuration** > **Site URL** and
+  **Redirect URLs**.
+
+#### 4. UI environment variables
+
+The companion UI repo ([wakit-ui](https://github.com/matiasbattocchia/wakit-ui))
+is a Vite app: `VITE_*` variables are inlined **at build time**. When you build
+the UI (Cloudflare Pages, Vercel, your own VPS), set:
+
+| UI build env var          | Value                                                            |
+| ------------------------- | ---------------------------------------------------------------- |
+| `VITE_SUPABASE_URL`       | `https://<SUPABASE_PROJECT_ID>.supabase.co`                      |
+| `VITE_SUPABASE_ANON_KEY`  | Project **publishable** / **anon** key (NOT the service role)    |
+
+> If you change either of these later, you must **rebuild and redeploy** the UI.
+> Setting them only as runtime variables has no effect — the previous values
+> remain embedded in `assets/*.js`.
+
+#### 5. Sanity check (run after the first `supabase db push`)
+
+```sql
+-- Extensions installed
+select extname, n.nspname as schema
+from pg_extension e
+join pg_namespace n on n.oid = e.extnamespace
+where extname in ('pg_net','supabase_vault','pgcrypto','pg_cron','moddatetime')
+order by extname;
+
+-- Legacy hooks table present
+select to_regclass('supabase_functions.hooks') as hooks_table;
+
+-- Vault secrets present
+select name from vault.decrypted_secrets
+where name in ('edge_functions_url','edge_functions_token');
+```
+
+You should see all five extensions, a non-null `hooks_table`, and both vault
+secrets. If any are missing, refer to the section above.
 
 #### Connect via Supabase GitHub Integration
 
@@ -190,7 +314,7 @@ In the [Supabase Dashboard](https://supabase.com/dashboard):
 1. Go to **Project Settings** > **Integrations**
 2. Under **GitHub Integration**, click **Authorize GitHub**
 3. On the GitHub authorization page, click **Authorize Supabase**
-4. Back on the Integrations page, choose your forked **open-bsp-api** repository
+4. Back on the Integrations page, choose your forked **wakit-api** repository
 5. Set the **Working directory** to `.` (the `supabase/` folder lives at the
    repo root)
 6. Set the **Production branch** to `main`
@@ -214,7 +338,7 @@ self-contained in GitHub Actions instead of relying on Supabase's integration.
 > Create the secrets at GitHub > Repository > Settings ⚙️ > Secrets and
 > variables \*️⃣ > Actions > Secrets
 >
-> <!-- `https://github.com/{github_account}/open-bsp-api/settings/secrets/actions` -->
+> <!-- `https://github.com/{github_account}/wakit-api/settings/secrets/actions` -->
 
 - **SUPABASE_ACCESS_TOKEN**: A
   [personal access token](https://supabase.com/dashboard/account/tokens)
@@ -230,7 +354,7 @@ self-contained in GitHub Actions instead of relying on Supabase's integration.
 > Create the variables at GitHub > Repository > Settings ⚙️ > Secrets and
 > variables \*️⃣ > Actions > Variables
 >
-> <!-- `https://github.com/{github_account}/open-bsp-api/settings/variables/actions` -->
+> <!-- `https://github.com/{github_account}/wakit-api/settings/variables/actions` -->
 
 - **SUPABASE_PROJECT_ID**
   <!-- the `{project_id}` in `https://supabase.com/dashboard/project/{project_id}` -->
@@ -243,7 +367,7 @@ self-contained in GitHub Actions instead of relying on Supabase's integration.
 > [!TIP]
 > Go to GitHub > Repository > Actions ▶️ > Release
 >
-> <!-- `https://github.com/{github_account}/open-bsp-api/actions/workflows/release.yml` -->
+> <!-- `https://github.com/{github_account}/wakit-api/actions/workflows/release.yml` -->
 
 1. Click **Run workflow**
 
@@ -251,7 +375,7 @@ self-contained in GitHub Actions instead of relying on Supabase's integration.
 
 ## WhatsApp integration
 
-To connect your OpenBSP project to the WhatsApp API, you'll need to setup a Meta
+To connect your wakit project to the WhatsApp API, you'll need to setup a Meta
 App with the WhatsApp product and configure the following Edge Functions
 secrets. You can set these up in two ways:
 
@@ -464,10 +588,10 @@ insert into public.organizations_addresses (address, organization_id, service, e
 
 New to Supabase? In one sentence: it's a hosted Postgres platform that
 auto-exposes your tables over a REST and realtime API, runs Deno-based Edge
-Functions for server-side logic, and handles auth and file storage on top.
-OpenBSP leans heavily on those primitives — most business logic lives as SQL
-triggers and Edge Functions, and clients (the web UI, the Claude Code plugin,
-custom integrations) talk to Postgres directly through a
+Functions for server-side logic, and handles auth and file storage on top. wakit
+leans heavily on those primitives — most business logic lives as SQL triggers
+and Edge Functions, and clients (the web UI, the Claude Code plugin, custom
+integrations) talk to Postgres directly through a
 [Supabase client library](https://supabase.com/docs/guides/api/rest/client-libs)
 rather than through a separate backend layer.
 
@@ -649,5 +773,5 @@ curl "https://<project-id>.supabase.co/rest/v1/" -H "apikey: <service_role_key>"
 
 Questions, ideas, or feedback? Join our
 [WhatsApp Community](https://chat.whatsapp.com/Ch6AwZizSDt5quzHodcYh5) or open
-an [issue](https://github.com/matiasbattocchia/open-bsp-api/issues). We'd love
-to hear from you.
+an [issue](https://github.com/matiasbattocchia/wakit-api/issues). We'd love to
+hear from you.
