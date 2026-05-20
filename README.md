@@ -5,7 +5,7 @@
 <p align="center">
   Self-hostable, multi-tenant, AI-agent ready. Built with Deno 🦕 and Postgres 🐘, powered by Supabase ⚡
 </p>
-
+ 
 <p align="center">
   <a href="https://app.wakit.ai"><img src="https://img.shields.io/badge/%F0%9F%9A%80_try_it-app.wakit.ai-C26A3D" alt="Try it"></a>&nbsp;
   <a href="https://unlicense.org/"><img src="https://img.shields.io/badge/license-Unlicense-blue.svg" alt="License: Unlicense"></a>&nbsp;
