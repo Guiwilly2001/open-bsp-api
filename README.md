@@ -1,7 +1,7 @@
 <h1 align="center">wakit API</h1>
 <p align="center">
   <strong>Open-source WhatsApp Business Platform</strong>
-</p>
+</p> 
 <p align="center">
   Self-hostable, multi-tenant, AI-agent ready. Built with Deno 🦕 and Postgres 🐘, powered by Supabase ⚡
 </p>
