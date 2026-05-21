@@ -1,6 +1,6 @@
 # CLAUDE.md
  
-## Project overview
+## Project overview 
 
 Open BSP API — a multi-tenant WhatsApp Business Platform integration built with
 Deno, Postgres, and Supabase Edge Functions. See README.md for full details.
